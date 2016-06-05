@@ -43,9 +43,9 @@
         <meta name="if:Social Links Icons" content="0"/> 
         
         <meta name="if:Show Post Tags" content="0"/>
-        <meta name="if:Show Post Caption" content="1"/>
-        <meta name="if:Show Post Meta" content="1"/>
-        <meta name="if:Show Post Share" content="1"/>
+        <meta name="if:Show Post Caption" content="0"/>
+        <meta name="if:Show Post Meta" content="0"/>
+        <meta name="if:Show Post Share" content="0"/>
         
         <!-- Sidebar -->
         <meta name="if:Sidebar Avatar" content="1"/>
@@ -140,7 +140,7 @@
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css' rel='stylesheet' type='text/css'>
     <link href="http://static.tumblr.com/b5aw2yz/VW3nj01lh/twemoji-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family={select:Google Font}:400,400italic,700,700italic">
-    <link href="http://static.tumblr.com/evx2wil/7eYo89p66/core.css" rel="stylesheet">
+    <link href="http://static.tumblr.com/evx2wil/iw9o8ap7o/core.css" rel="stylesheet">
     
     <style type="text/css">
         
@@ -1015,6 +1015,59 @@
             </div>
             
             
+            {block:ifnavigation}
+                <nav class="sidebar-navigation {select:Navigation Text} cl">
+                    <ul>
+                        {block:IfCustomLink1URL}<li><a href="{text:Custom Link 1 URL}">{text:Custom Link 1 Name}</a></li>{/block:IfCustomLink1URL}
+                        {block:IfCustomLink2URL}<li><a href="{text:Custom Link 2 URL}">{text:Custom Link 2 Name}</a></li>{/block:IfCustomLink2URL}
+                        {block:IfCustomLink3URL}<li><a href="{text:Custom Link 3 URL}">{text:Custom Link 3 Name}</a></li>{/block:IfCustomLink3URL}
+                        {block:IfCustomLink4URL}<li><a href="{text:Custom Link 4 URL}">{text:Custom Link 4 Name}</a></li>{/block:IfCustomLink4URL}
+                        {block:IfCustomLink5URL}<li><a href="{text:Custom Link 5 URL}">{text:Custom Link 5 Name}</a></li>{/block:IfCustomLink5URL} 
+                        
+                        {block:HasPages}
+                            {block:Pages}
+                            <li> <a href="{URL}">{Label}</a></li>
+                            {/block:Pages}
+                        {/block:HasPages}
+                        
+                         {block:AskEnabled}
+                        <li> <a class="fuse-ask-page" href="http://{name}.tumblr.com/ask" title="{text:Ask Link Label}">{text:Ask Link Label}</a></li>
+                        {/block:AskEnabled}
+                        
+                        {block:SubmissionsEnabled}
+                        <li> <a href="http://{name}.tumblr.com/submit" title="{text:Submit Link Label}">{text:Submit Link Label}</a></li>
+                        {/block:SubmissionsEnabled}
+                        {block:IfArchiveLink}
+                        <li><a href="http://{name}.tumblr.com/archive" title="{text:Archive Link Label}">{text:Archive Link Label}</a></li>
+                        {/block:IfArchiveLink}
+                        {block:ifRandomLink}
+                        <li><a href="http://{name}.tumblr.com/random" title="{text:Random Link Label}">{text:Random Link Label}</a></li>
+                        {/block:ifRandomLink}
+                        
+                        {block:ifRSSLink}
+                            <li><a href="{RSS}" title="{lang:RSS}">{lang:RSS}</a></li>
+                        {/block:ifRSSLink}
+    
+                    </ul>
+                    <ul class="{block:ifsociallinksicons}social-links-icons{/block:ifsociallinksicons} social-links">
+                        
+                        {block:ifInstagramURL}<li><a href="{text:Instagram URL}"><i class="fa fa-instagram"></i><span>Instagram</span></a></li>{block:ifInstagramURL}
+                        {block:ifTwitterURL}<li><a href="{text:Twitter URL}"><i class="fa fa-twitter"></i><span>Twitter</span></a></li>{/block:ifTwitterURL}
+                        {block:ifFacebookURL}<li><a href="{text:Facebook URL}"><i class="fa fa-facebook"></i><span>Facebook</span></a></li>{/block:ifFacebookURL}
+                        {block:ifYoutubeURL}<li><a href="{text:Youtube URL}"><i class="fa fa-youtube"></i><span>Youtube</span></a></li>{/block:ifYoutubeURL}  
+                        {block:ifSoundcloudURL}<li><a href="{text:Soundcloud URL}"><i class="fa fa-soundcloud"></i><span>Soundcloud</span></a></li>{/block:ifSoundcloudURL}    
+                        {block:ifBehanceURL}<li><a href="{text:Behance URL}"><i class="fa fa-behance"></i><span>Behance</span></a></li>{/block:ifBehanceURL}    
+                        {block:ifDribbbleURL}<li><a href="{text:Dribbble URL}"><i class="fa fa-dribbble"></i><span>Dribbble</span></a></li>{/block:ifDribbbleURL}    
+                        {block:ifFlickrURL}<li><a href="{text:Flickr URL}"><i class="fa fa-flickr"></i><span>Flickr</span></a></li>{/block:ifFlickrURL}   
+                        {block:ifLinkedinURL}<li><a href="{text:Linkedin URL}"><i class="fa fa-linkedin"></i><span></span>Linkedin</span></a></li>{/block:ifLinkedinURL}    
+                        {block:ifPinterestURL}<li><a href="{text:Pinterest URL}"><i class="fa fa-pinterest"></i><span>Pinterest</span></a></li>{/block:ifPinterestURL}    
+                        {block:ifVimeoURL}<li><a href="{text:Vimeo URL}"><i class="fa fa-vimeo"></i><span>Vimeo</span></a></li>{/block:ifVimeoURL}    
+                        
+                    </ul>
+                </nav>
+            {/block:ifnavigation}
+            
+            
             {block:ShowDescription}
                 <div class="text widget cl">
                 <h3>{text:Sidebar Description Title}</h3>
@@ -1235,7 +1288,7 @@
                     <article id="ant-{PostID}" class="{block:IndexPage}ants-item-four post post-video {block:HasTags}{block:Tags} {Tag}{/block:Tags}{/block:HasTags}{/block:IndexPage}{block:PermalinkPage}{block:Date} post-single{/block:Date}{/block:PermalinkPage}" data-id="{PostID}" data-notes="{PostNotesURL}" data-pt="video">
                     <input id="post-notes-url" type="hidden" value="{PostNotesURL}">
                         <div class="inside">
-                            <div class="media">{Video-500}</div>
+                            <div class="media">{VideoEmbed-250}</div>
         
                             <div class="content">
                                 {block:Caption}{Caption}{/block:Caption}
@@ -1489,7 +1542,7 @@
     
             <!-- Header Scripts -->
     <script src="https://code.jquery.com/jquery-2.2.2.js" integrity="sha256-4/zUCqiq0kqxhZIyp4G0Gk+AOtCJsY1TA00k5ClsZYE=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="http://static.tumblr.com/evx2wil/ETBo89p5y/plugins.js">
+    <script type="text/javascript" src="http://static.tumblr.com/evx2wil/FICo8ap88/plugins.js">
     </script>
 
     <script type="text/javascript" src="http://static.tumblr.com/evx2wil/na7o89p63/katzndogz.js"></script>
@@ -1513,7 +1566,7 @@
                 
                 $(document).ready(function(){
                     
-
+                    $("article").fitVids({ customSelector: "iframe[src='about:blank']"});
                     $('.fuse-photoset.ips').fuseIPS();
                     $.fuseAnts();
                     $( "li.post-like" ).each(function( index ) {
