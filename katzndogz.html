@@ -79,7 +79,7 @@
         <meta name="text:Sidebar Google Ad Script" content=""/>
         <meta name="text:Soundcloud Widget Title" content="Soundcloud">
         <meta name="text:Soundcloud Widget URL" content=""/>
-        <meta name="if:Soundcloud Widget Autoplay" content="0"/>
+        <meta name="if:Soundcloud Widget Autoplay" content="1"/>
         <meta name="if:Site Preloader" content="1"/> 
         
         
@@ -1089,7 +1089,7 @@
                     </div>
                     <div class="sc-controls">
                         <div class="pause-play">
-                            <i class="fa fa-play"></i>
+                            <i class="fa fa-pause"></i>
                         </div>
                         <div class="prev">
                             <i class="fa fa-step-backward"></i>
@@ -1542,16 +1542,23 @@
     
             <!-- Header Scripts -->
     <script src="https://code.jquery.com/jquery-2.2.2.js" integrity="sha256-4/zUCqiq0kqxhZIyp4G0Gk+AOtCJsY1TA00k5ClsZYE=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="http://static.tumblr.com/evx2wil/FICo8ap88/plugins.js">
+    <script type="text/javascript" src="http://static.tumblr.com/evx2wil/u0Po9i5hy/plugins.js">
     </script>
 
     <script type="text/javascript" src="http://static.tumblr.com/evx2wil/na7o89p63/katzndogz.js"></script>
     <script src="http://static.tumblr.com/evx2wil/yAGo89p60/modal.js"></script>
-    <script src="http://static.tumblr.com/evx2wil/aiEo89vdb/ants.js"></script>
+    <script src="http://static.tumblr.com/evx2wil/ulmo9i5he/ants.js"></script>
     
-    {block:IfSoundcloudWidgetURL}
+    {block:IfSoundcloudWidgetURL} 
+        <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
         <script src="https://w.soundcloud.com/player/api.js"></script>
-
+        <script>
+            soundcloudURL = "{text:Soundcloud Widget URL}";
+            soundcloudClientID = '394aae1023264c7233cb81fab17fe036';
+            // SC.initialize({
+            //     client_id: soundcloudClientID
+            // });
+        </script>
     {/block:IfSoundcloudWidgetURL}
     
     {block:IfTypeKitID}
@@ -1666,7 +1673,7 @@
     </script>
 
     {block:IfSoundcloudWidgetURL}
-        <iframe id="fuse-sc" src="https://w.soundcloud.com/player/?url={text:Soundcloud Widget URL}" width="100%" height="465" scrolling="no" frameborder="no"></iframe>
+        <div id="fuse-sc"></div>
     {/block:IfSoundcloudWidgetURL}
 
     {block:Twitter}
